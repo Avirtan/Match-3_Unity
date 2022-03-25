@@ -107,7 +107,11 @@ public class GameController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) || Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began && !_isSwipe)
         {
+#if UNITY_EDITOR
+            var pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+#else
             var pos = Camera.main.ScreenToWorldPoint(Input.touches[0].position);
+#endif
             RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.zero);
             if (hit.collider != null)
             {

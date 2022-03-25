@@ -98,7 +98,7 @@ public class Grid : MonoBehaviour
             }
             else
             {
-                Debug.Log("Not update");
+                // Debug.Log("Not update");
             }
             _blocks[block.Y, block.X] = null;
             Destroy(block.gameObject);
